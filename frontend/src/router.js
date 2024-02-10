@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 
 import Login from "./view/Login.vue";
 import Landing from "./view/Landing.vue";
-import Quiz from  "./view/Quiz.vue"
+import Quiz from "./view/Quiz.vue";
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -13,4 +13,4 @@ const router = createRouter({
   ],
 });
 
-export default router
+export default router;

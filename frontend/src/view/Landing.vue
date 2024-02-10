@@ -21,31 +21,31 @@
         <figcaption class="mt-10">
           <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
             <!--<form class="space-y-6">-->
-              <div>
-                <label
-                  for="email"
-                  class="block text-sm font-medium leading-6 text-gray-900"
-                  >Số báo danh</label
-                >
-                <div class="mt-2 mb-4">
-                  <input
-                    v-model="data.idnum"
-                    id="idnum"
-                    name="idnum"
-                    type="text"
-                    required=""
-                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  />
-                </div>
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >Số báo danh</label
+              >
+              <div class="mt-2 mb-4">
+                <input
+                  v-model="data.idnum"
+                  id="idnum"
+                  name="idnum"
+                  type="text"
+                  required=""
+                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
               </div>
-              <div>
-                <button
-                  class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                  @click="login"
-                >
-                  Tiếp theo
-                </button>
-              </div>
+            </div>
+            <div>
+              <button
+                class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                @click="login"
+              >
+                Tiếp theo
+              </button>
+            </div>
             <!--</form>-->
           </div>
           <div
@@ -103,11 +103,12 @@
                 as="h3"
                 class="text-lg font-medium leading-6 text-gray-900"
               >
-                {{result.Message}}
+                {{ result.Message }}
               </DialogTitle>
               <div class="mt-2">
                 <p class="text-sm text-gray-500">
-                Vui lòng kiểm tra lại thông tin số báo danh được thông báo, hoặc liên hệ Giám thị để biết thêm thông tin chi tiết.
+                  Vui lòng kiểm tra lại thông tin số báo danh được thông báo,
+                  hoặc liên hệ Giám thị để biết thêm thông tin chi tiết.
                 </p>
               </div>
 
@@ -140,9 +141,9 @@ import {
   TransitionChild,
 } from "@headlessui/vue";
 
-import {useRouter} from 'vue-router'
+import { useRouter } from "vue-router";
 
-const router = useRouter()
+const router = useRouter();
 
 const isOpen = ref(false);
 
@@ -151,38 +152,34 @@ const data = ref({
 });
 const result = ref({
   Message: "",
-  Status: false
-})
+  Status: false,
+});
 
 function closeDialog() {
   isOpen.value = false;
 }
 
 function login() {
- 
   Login(data.value.idnum).then((res) => {
-    if (res.Status){
+    if (res.Status) {
       let user = {
-        "idNumber":"T",
-        "fullName": "Trần Thị Tường Vân",
-        "sex": "Nữ",
-        "bod":"22/04/2002", 
-        "pod":"Lâm Đồng",
-        "room": "TV1"
-      }
+        idNumber: "T",
+        fullName: "Trần Thị Tường Vân",
+        sex: "Nữ",
+        bod: "22/04/2002",
+        pod: "Lâm Đồng",
+        room: "TV1",
+      };
       router.push({
-        name: 'login',
-        params:{
-          user: JSON.stringify(user)
-        }
-        
-      })
-      
-    }else{
-      result.value = res
-      isOpen.value = true
+        name: "login",
+        params: {
+          user: JSON.stringify(user),
+        },
+      });
+    } else {
+      result.value = res;
+      isOpen.value = true;
     }
-    
   });
 }
 </script>

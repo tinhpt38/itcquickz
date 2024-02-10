@@ -77,12 +77,12 @@ const init = () => {
 
 init();
 
-function lunch(){
+function lunch() {
   router.push({
-    name:"quiz",
-    params:{
-      data: "A"
-    }
-  })
+    name: "quiz",
+    params: {
+      data: "A",
+    },
+  });
 }
 </script>

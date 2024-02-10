@@ -11,8 +11,10 @@
   "dependencies": {
     "@headlessui/vue": "^1.7.19",
     "@heroicons/vue": "^2.1.1",
+    "moment": "^2.30.1",
     "vue": "^3.2.37",
-    "vue-router": "^4.2.5"
+    "vue-router": "^4.2.5",
+    "vue-timer-hook": "^1.0.84"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.0.3",

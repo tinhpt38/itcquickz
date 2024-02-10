@@ -1,9 +1,12 @@
 {
-    "plugins": [
-        {
-            "type": "add",
-            "pluginName": "fleet.vue"
-        }
-    ],
-    "autoSave": "OnFocus"
+  "plugins": [
+    {
+      "type": "add",
+      "pluginName": "fleet.vue"
+    }
+  ],
+  "autoSave": "OnFocus",
+  "editor.formatOnSave": true,
+  "nodejs.editor.formatOnSave.prettier.glob": "{**/*,*}.{js,ts,jsx,tsx,vue}",
+  "nodejs.editor.formatOnSave.eslint.glob": "{**/*,*}.{js,ts,jsx,tsx,vue}"
 }

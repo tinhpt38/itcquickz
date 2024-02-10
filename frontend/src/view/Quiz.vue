@@ -36,7 +36,8 @@
                 title="Giới tính"
                 subTitle="user.sex || ''"
               ></info-line>
-              <info-line title="Ngày sinh"
+              <info-line
+                title="Ngày sinh"
                 subTitle="user.bod || ''"
               ></info-line>
               <info-line title="Nơi sinh" subTitle="user.pod || ''"></info-line>
@@ -73,10 +74,7 @@
           </div>
           <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
             <p class="text-sm leading-6 text-gray-900">{{ person.role }}</p>
-            <p
-              v-if="person.lastSeen"
-              class="mt-1 text-xs leading-5 text-gray-500"
-            >
+            <p v-if="person.lastSeen" class="mt-1 text-xs leading-5 text-gray-500">
               Last seen
               <time :datetime="person.lastSeenDateTime"
                 >{{ person.lastSeen }}
@@ -92,12 +90,36 @@
         </li>
       </ul>
     </div>
-    <div class="bg-white drop-shadow-xl">01</div>
+    <div class="bg-white drop-shadow-xl">
+      <div>
+        <span>{{ timer.minutes }}</span>:<span>{{ timer.seconds }}</span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script setup>
 import InfoLine from "../components/InfoLine.vue";
+import { ref } from "vue";
+import { watchEffect, onMounted } from "vue";
+import { useTimer } from "vue-timer-hook";
+
+const time = new Date();
+time.setSeconds(time.getSeconds() + 600); // 10 minutes timer
+const timer = useTimer(time);
+const restartFive = () => {
+  // Restarts to 5 minutes timer
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 300);
+  timer.restart(time);
+};
+onMounted(() => {
+  watchEffect(async () => {
+    if (timer.isExpired.value) {
+      console.warn("IsExpired");
+    }
+  });
+});
 
 const people = [
   {

@@ -1,0 +1,10 @@
+{
+    "printWidth": 80,
+    "parser": "vue",
+    "tabWidth": 2,
+    "embeddedLanguageFormatting": "auto",
+    "singleQuote": true,
+    "useTabs": true,
+    "bracketSameLine": true,
+    "vueIndentScriptAndStyle": true
+}

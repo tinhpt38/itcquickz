@@ -1,10 +1,11 @@
 {
-  "configurations": [
-    {
-      "type": "command",
-      "name": "wails dev",
-      "program": "wails",
-      "args": ["dev"]
-    }
-  ]
+    "configurations": [
+        {
+            "type": "command",
+            "name": "wails dev",
+            "program": "wails",
+            "args": ["dev"],
+        },
+        
+    ]
 }
